@@ -225,6 +225,99 @@ footer span{color:var(--blue-light);}
 .afc-sub{font-size:14px;color:var(--text-muted);font-weight:300;margin-bottom:2rem;line-height:1.65;}
 .afc-note{font-size:11px;color:rgba(147,197,253,0.3);margin-top:1rem;letter-spacing:0.3px;}
 </style>
+
+<style>
+/* ── MOBILE NAV ── */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
+.hamburger span{width:22px;height:2px;background:var(--blue-pale);border-radius:2px;transition:all 0.2s;}
+.mob-menu{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(7,13,26,0.97);z-index:200;flex-direction:column;align-items:center;justify-content:center;gap:2rem;}
+.mob-menu.open{display:flex;}
+.mob-menu a{font-family:'Montserrat',sans-serif;font-size:22px;font-weight:700;color:var(--text-muted);cursor:pointer;letter-spacing:-0.5px;}
+.mob-menu a:hover{color:var(--text);}
+.mob-close{position:absolute;top:1.5rem;right:1.5rem;font-size:28px;color:var(--text-muted);cursor:pointer;background:none;border:none;line-height:1;}
+.mob-btns{display:flex;flex-direction:column;gap:12px;align-items:center;margin-top:1rem;}
+
+@media(max-width:768px){
+  /* NAV */
+  nav{padding:1rem 5vw;}
+  .nav-links,.nav-right{display:none;}
+  .hamburger{display:flex;}
+
+  /* HOME */
+  .home-hero{padding:5rem 6vw 4rem;min-height:80vh;}
+  .home-hero h1{font-size:clamp(36px,10vw,56px);letter-spacing:-2px;}
+  .home-hero .sub{font-size:15px;}
+  .home-tags{gap:6px;}
+  .home-tag{font-size:9px;padding:5px 10px;}
+  .pillars-wrap{padding:3.5rem 6vw;}
+  .pillars{grid-template-columns:1fr;gap:1rem;}
+  .pillars-head h2{font-size:26px;}
+  .home-quote{padding:3rem 6vw;}
+
+  /* HOW IT WORKS */
+  .hiw-banner{padding:4rem 6vw 3rem;align-items:flex-start;text-align:left;}
+  .hiw-banner::before{display:none;}
+  .steps-wrap{padding:2.5rem 6vw 2rem;}
+  .step{grid-template-columns:52px 1px 1fr;gap:0 1.5rem;padding:2rem 0;}
+  .step-num-big{font-size:26px;}
+  .services-wrap{padding:2rem 6vw 4rem;}
+  .services-grid{grid-template-columns:1fr;gap:1rem;}
+  .services-intro h2{font-size:26px;}
+
+  /* OUR TEAM */
+  .team-intro{padding:4rem 6vw 3rem;}
+  .team-intro h1{font-size:clamp(36px,10vw,52px);}
+  .board-wrap{padding:1rem 6vw 2rem;}
+  .bm.l,.bm.r{grid-template-columns:1fr;display:flex;flex-direction:column;}
+  .bm.r{flex-direction:column-reverse;}
+  .bm-img-wrap{padding:1.5rem 1.5rem 0;}
+  .bm-img{max-width:140px;}
+  .bm-info,.bm-info.rt{text-align:left;padding:1rem 1.5rem 1.5rem;}
+  .bm-info.rt .bm-bio{margin-left:0;}
+  .bm-name{font-size:22px;}
+  .advisors-wrap{padding:2rem 6vw;}
+  .adv-row{flex-direction:column;gap:1rem;}
+  .recruit-strip{flex-direction:column;gap:1.25rem;padding:1.75rem;}
+
+  /* ABOUT */
+  .about-hero{grid-template-columns:1fr;gap:1.5rem;padding:4rem 6vw 3rem;min-height:auto;}
+  .about-hero::after{display:none;}
+  .about-hero h1{font-size:clamp(34px,9vw,52px);}
+  .tl-wrap{padding:3rem 6vw;}
+  .about-close{padding:0 6vw 4rem;}
+  .about-close-box{flex-direction:column;gap:1.5rem;padding:2rem;}
+  .acb-mark{font-size:48px;}
+
+  /* STUDENT */
+  .student-top{padding:4rem 6vw 2.5rem;}
+  .student-top h1{font-size:clamp(28px,8vw,44px);}
+  .student-strip{flex-direction:column;margin:2rem 6vw;border-radius:16px;}
+  .sstrip-item{border-right:none;border-bottom:1px solid var(--border);padding:1.25rem;}
+  .sstrip-item:last-child{border-bottom:none;}
+  .form-center{padding:0 6vw 4rem;}
+
+  /* ADVISOR */
+  .adv-top{grid-template-columns:1fr;gap:1.25rem;padding:4rem 6vw 3rem;}
+  .adv-top h1{font-size:clamp(28px,8vw,44px);}
+  .ht-wrap{padding:2rem 6vw 3rem;overflow-x:auto;}
+  .ht-track{grid-template-columns:1fr;gap:1.5rem;}
+  .ht-track::before{display:none;}
+  .adv-form-wrap{grid-template-columns:1fr;gap:2rem;padding:1rem 6vw 4rem;}
+
+  /* CONTACT */
+  #page-contact > div:nth-child(2){grid-template-columns:1fr!important;max-width:100%!important;}
+
+  /* LOCATIONS */
+  #page-locations > div:first-child{grid-template-columns:1fr;gap:1.5rem;padding:4rem 6vw 3rem;}
+  #page-locations > div:first-child::before{display:none;}
+  #page-locations > div:nth-child(2){padding:2rem 6vw 3rem;}
+  #page-locations .au.d3{grid-template-columns:1fr!important;}
+
+  /* FOOTER */
+  footer{font-size:11px;flex-direction:column;gap:4px;}
+}
+</style>
+
 </head>
 <body>
 
@@ -237,11 +330,29 @@ footer span{color:var(--blue-light);}
       <li><a onclick="show('contact')">Contact</a></li>
       <li><a onclick="show('locations')">Locations</a></li>
   </ul>
+  <div class="hamburger" onclick="document.getElementById('mobMenu').classList.add('open')">
+    <span></span><span></span><span></span>
+  </div>
   <div class="nav-right">
     <button class="btn-ghost" onclick="show('advisor')">Become an Advisor</button>
     <button class="btn-solid" onclick="show('student')">Join as a Student</button>
   </div>
 </nav>
+
+<!-- mobile menu -->
+<div class="mob-menu" id="mobMenu">
+  <button class="mob-close" onclick="closeMob()">&#x2715;</button>
+  <a onclick="show('home');closeMob()">Home</a>
+  <a onclick="show('hiw');closeMob()">How It Works</a>
+  <a onclick="show('team');closeMob()">Our Team</a>
+  <a onclick="show('about');closeMob()">About Us</a>
+  <a onclick="show('contact');closeMob()">Contact</a>
+  <a onclick="show('locations');closeMob()">Locations</a>
+  <div class="mob-btns">
+    <button class="btn-ghost" onclick="show('advisor');closeMob()">Become an Advisor</button>
+    <button class="btn-solid" onclick="show('student');closeMob()">Join as a Student</button>
+  </div>
+</div>
 
 <!-- HOME -->
 <div class="page active" id="page-home">
@@ -583,7 +694,21 @@ function show(p){
   document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'));
   if(m[p]!==undefined) document.querySelectorAll('.nav-links a')[m[p]].classList.add('active');
   window.scrollTo(0,0);
+  window.location.hash = p;
 }
+
+function closeMob(){
+  document.getElementById('mobMenu').classList.remove('open');
+}
+
+// Hash routing on load
+(function(){
+  const hash = window.location.hash.replace('#','');
+  const valid = ['home','hiw','team','about','contact','locations','student','advisor'];
+  if(hash && valid.includes(hash)){
+    show(hash);
+  }
+})();
 </script>
 </body>
 </html>
